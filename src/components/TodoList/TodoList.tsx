@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { TodosProps } from "../../props/ndex";
+import { TodosProps } from "../../props";
 import { Todo } from "../../models/Todo";
 import TodoItem from "../TodoItem/TodoItem";
 

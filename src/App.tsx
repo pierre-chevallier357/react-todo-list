@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoList from "./components/TodoList/TodoList";
-import { InputProps, TodosProps } from "./props/ndex";
+import { InputProps, TodosProps } from "./props";
 import { Todo } from "./models/Todo";
 
 export default function App() {
