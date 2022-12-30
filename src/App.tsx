@@ -6,6 +6,7 @@ import { Todo } from "./models/Todo";
 
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const inputProps: InputProps = { setTodos };
 
   const toggleIsDone = useCallback(
     (todo: Todo): void => {
@@ -23,11 +24,19 @@ export default function App() {
     []
   );
 
-  const todosProps: TodosProps = useMemo((): TodosProps => {
-    return { todos, toggleIsDone, removeTodo };
-  }, [todos, toggleIsDone, removeTodo]);
+  const editTodo = useCallback(
+    (todo: Todo, text: string): void => {
+      const updatingTodo: number = todos.findIndex((t) => t.id === todo.id);
+      let newTodos = [...todos];
+      newTodos[updatingTodo].text = text;
+      setTodos(newTodos);
+    },
+    [todos]
+  );
 
-  const inputProps: InputProps = { setTodos };
+  const todosProps: TodosProps = useMemo((): TodosProps => {
+    return { todos, editTodo, removeTodo, toggleIsDone };
+  }, [todos, editTodo, removeTodo, toggleIsDone]);
 
   return (
     <>

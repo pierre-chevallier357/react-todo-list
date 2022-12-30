@@ -2,6 +2,7 @@ import { Todo } from "../models/Todo";
 
 export interface TodosProps {
   todos: Todo[];
-  toggleIsDone: Function;
+  editTodo: Function;
   removeTodo: Function;
+  toggleIsDone: Function;
 }

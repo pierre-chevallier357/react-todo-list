@@ -11,8 +11,9 @@ const TodoList = memo(function TodoList({ props }: { props: TodosProps }) {
           key={todo.id}
           props={{
             todo: todo,
-            removeTodo: props.removeTodo,
+            editTodo: props.editTodo,
             toggleIsDone: props.toggleIsDone,
+            removeTodo: props.removeTodo,
           }}
         ></TodoItem>
       ))}
