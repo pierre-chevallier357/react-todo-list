@@ -1,4 +1,4 @@
-import { TodoProps } from "../../props";
+import { TodoProps } from "../../prop";
 import "./TodoItem.css";
 
 export default function TodoItem({ props }: { props: TodoProps }) {

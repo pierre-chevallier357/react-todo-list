@@ -1,4 +1,4 @@
-import { Todo } from "../models/Todo";
+import { Todo } from "../model/Todo";
 
 export interface TodoProps {
   todo: Todo;
