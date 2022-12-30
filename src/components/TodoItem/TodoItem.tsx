@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 import useDoubleClick from "../../hooks/useDoubleClick";
 import { TodoProps } from "../../props";
 import "./TodoItem.css";
@@ -12,12 +13,15 @@ export default function TodoItem({ props }: { props: TodoProps }) {
     setInputText(props.todo.text);
   });
 
-  function editTodo(e: any): void {
-    if (e.key === "Enter") {
+  function editTodo(e?: any): void {
+    if (!e || e.key === "Enter") {
       props.editTodo(props.todo, inputText);
       setIsEditing(false);
     }
   }
+
+  const inputRef = useRef(null);
+  useClickOutside(inputRef, editTodo);
 
   return (
     <div style={{ display: "flex" }}>
@@ -32,6 +36,7 @@ export default function TodoItem({ props }: { props: TodoProps }) {
       )}
       {isEditing && (
         <input
+          ref={inputRef}
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           onKeyDown={(e) => editTodo(e)}
