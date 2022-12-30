@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
 import useDoubleClick from "../../hooks/useDoubleClick";
-import { TodoProps } from "../../props";
+import { TodoProps } from "../../props/ndex";
 import "./TodoItem.css";
 
 export default function TodoItem({ props }: { props: TodoProps }) {

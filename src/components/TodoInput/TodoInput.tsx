@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InputProps } from "../../props";
+import { InputProps } from "../../props/ndex";
 import { Todo } from "../../models/Todo";
 
 export default function TodoInput({ props }: { props: InputProps }) {
