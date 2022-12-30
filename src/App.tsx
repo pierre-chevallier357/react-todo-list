@@ -39,9 +39,9 @@ export default function App() {
   }, [todos, editTodo, removeTodo, toggleIsDone]);
 
   return (
-    <>
+    <div className="todo-app">
       <TodoList props={todosProps}></TodoList>
       <TodoInput props={inputProps}></TodoInput>
-    </>
+    </div>
   );
 }

@@ -25,6 +25,7 @@ export default function TodoInput({ props }: { props: InputProps }) {
       onKeyDown={(e) => addTodo(e)}
       onChange={(e) => setInputText(e.target.value)}
       value={inputText}
+      placeholder="Add a todo"
     />
   );
 }

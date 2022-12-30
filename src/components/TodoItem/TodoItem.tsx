@@ -29,7 +29,7 @@ export default function TodoItem({ props }: { props: TodoProps }) {
   useClickOutside(inputRef, disableEditingMode);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="todo">
       {!isEditing && (
         <li
           key={props.todo.id}
@@ -48,8 +48,12 @@ export default function TodoItem({ props }: { props: TodoProps }) {
           autoFocus={true}
         />
       )}
-      &nbsp;
-      <button onClick={() => props.removeTodo(props.todo)}>X</button>
+      <button
+        className="delete-button"
+        onClick={() => props.removeTodo(props.todo)}
+      >
+        X
+      </button>
     </div>
   );
 }
