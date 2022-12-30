@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { InputProps } from "../../Props";
-import { Todo } from "../../Models/Todo";
+import { InputProps } from "../../props";
+import { Todo } from "../../models/Todo";
 
 export default function TodoInput({ props }: { props: InputProps }) {
   const [inputText, setInputText] = useState("");

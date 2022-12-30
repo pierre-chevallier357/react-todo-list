@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { TodosProps } from "../../Props";
-import { Todo } from "../../Models/Todo";
+import { TodosProps } from "../../props";
+import { Todo } from "../../models/Todo";
 import TodoItem from "../TodoItem/TodoItem";
 
 const TodoList = memo(function TodoList({ props }: { props: TodosProps }) {
