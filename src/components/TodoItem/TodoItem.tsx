@@ -8,20 +8,25 @@ export default function TodoItem({ props }: { props: TodoProps }) {
   const [isEditing, setIsEditing] = useState(false);
   const [inputText, setInputText] = useState("");
 
-  const handleClick = useDoubleClick(null, () => {
+  function enableEditingMode(): void {
     setIsEditing(true);
     setInputText(props.todo.text);
-  });
+  }
 
-  function editTodo(e?: any): void {
+  function disableEditingMode(e?: any): void {
     if (!e || e.key === "Enter") {
       props.editTodo(props.todo, inputText);
       setIsEditing(false);
     }
   }
 
+  const handleClick = useDoubleClick(
+    () => props.toggleIsDone(props.todo),
+    enableEditingMode
+  );
+
   const inputRef = useRef(null);
-  useClickOutside(inputRef, editTodo);
+  useClickOutside(inputRef, disableEditingMode);
 
   return (
     <div style={{ display: "flex" }}>
@@ -39,7 +44,7 @@ export default function TodoItem({ props }: { props: TodoProps }) {
           ref={inputRef}
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          onKeyDown={(e) => editTodo(e)}
+          onKeyDown={(e) => disableEditingMode(e)}
           autoFocus={true}
         />
       )}
