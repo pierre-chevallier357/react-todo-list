@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
-import TodoInput from "./components/TodoInput/TodoInput";
-import TodoList from "./components/TodoList/TodoList";
-import { Todo } from "./models/Todo";
+import TodoInput from "../TodoInput/TodoInput";
+import TodoList from "../TodoList/TodoList";
+import { Todo } from "../../models/Todo";
 
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);

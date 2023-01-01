@@ -5,12 +5,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.todo-app {
-  border: solid 1px #999;
-  padding: 1rem;
-}
-
-.delete-button {
-  float: right;
-}
