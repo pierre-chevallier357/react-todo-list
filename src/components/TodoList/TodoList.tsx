@@ -1,9 +1,15 @@
 import { memo } from "react";
-import { TodosProps } from "../../props";
 import { Todo } from "../../models/Todo";
 import TodoItem from "../TodoItem/TodoItem";
 
-const TodoList = memo(function TodoList({ props }: { props: TodosProps }) {
+interface Props {
+  todos: Todo[];
+  editTodo: Function;
+  removeTodo: Function;
+  toggleIsDone: Function;
+}
+
+const TodoList = memo(function TodoList({ props }: { props: Props }) {
   return (
     <ul>
       {props.todos.map((todo: Todo) => (

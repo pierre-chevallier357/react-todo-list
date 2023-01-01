@@ -1,12 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoList from "./components/TodoList/TodoList";
-import { InputProps, TodosProps } from "./props";
 import { Todo } from "./models/Todo";
 
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const inputProps: InputProps = { setTodos };
+  const inputProps: { setTodos: Function } = { setTodos };
 
   const toggleIsDone = useCallback(
     (todo: Todo): void => {
@@ -34,7 +33,7 @@ export default function App() {
     [todos]
   );
 
-  const todosProps: TodosProps = useMemo((): TodosProps => {
+  const todosProps = useMemo(() => {
     return { todos, editTodo, removeTodo, toggleIsDone };
   }, [todos, editTodo, removeTodo, toggleIsDone]);
 

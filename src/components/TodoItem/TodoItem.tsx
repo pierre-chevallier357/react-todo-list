@@ -1,10 +1,17 @@
 import { useRef, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
 import useDoubleClick from "../../hooks/useDoubleClick";
-import { TodoProps } from "../../props";
+import { Todo } from "../../models/Todo";
 import "./TodoItem.css";
 
-export default function TodoItem({ props }: { props: TodoProps }) {
+interface Props {
+  todo: Todo;
+  editTodo: Function;
+  removeTodo: Function;
+  toggleIsDone: Function;
+}
+
+export default function TodoItem({ props }: { props: Props }) {
   const [isEditing, setIsEditing] = useState(false);
   const [inputText, setInputText] = useState("");
 
