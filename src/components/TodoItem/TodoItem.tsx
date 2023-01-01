@@ -34,7 +34,7 @@ export default function TodoItem({ props }: { props: TodoProps }) {
         <li
           key={props.todo.id}
           onClick={handleClick}
-          className={`${props.todo.isDone ? "crossed-text" : ""}`}
+          className={`${props.todo.isDone && "crossed-text"}`}
         >
           {props.todo.text}
         </li>

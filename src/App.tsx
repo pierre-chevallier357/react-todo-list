@@ -40,6 +40,7 @@ export default function App() {
 
   return (
     <div className="todo-app">
+      <h1>Todo list</h1>
       <TodoList props={todosProps}></TodoList>
       <TodoInput props={inputProps}></TodoInput>
     </div>

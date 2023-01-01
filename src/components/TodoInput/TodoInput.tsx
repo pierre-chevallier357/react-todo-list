@@ -9,14 +9,10 @@ export default function TodoInput({ props }: { props: InputProps }) {
     if (e.key === "Enter") {
       props.setTodos((todos: Todo[]) => [
         ...todos,
-        { id: getNewId(todos), text: e.target.value, isDone: false },
+        { id: todos.length + 1, text: e.target.value, isDone: false },
       ]);
       setInputText("");
     }
-  }
-
-  function getNewId(todos: Todo[]): number {
-    return todos.length === 0 ? 0 : todos[todos.length - 1].id + 1;
   }
 
   return (
