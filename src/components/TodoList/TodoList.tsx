@@ -21,7 +21,7 @@ const TodoList = memo(function TodoList({ props }: { props: Props }) {
             toggleIsDone: props.toggleIsDone,
             removeTodo: props.removeTodo,
           }}
-        ></TodoItem>
+        />
       ))}
     </ul>
   );
