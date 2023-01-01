@@ -10,6 +10,7 @@ export default function TodoInput({ props }: { props: Props }) {
 
   function addTodo(e: any): void {
     if (e.key === "Enter") {
+      if (!inputText) return;
       props.setTodos((todos: Todo[]) => [
         ...todos,
         { id: todos.length + 1, text: e.target.value, isDone: false },
