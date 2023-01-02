@@ -8,8 +8,8 @@ export default function App() {
   const inputProps: { setTodos: Function } = { setTodos };
 
   const toggleIsDone = useCallback(
-    (todo: Todo): void => {
-      const updatingTodo: number = todos.findIndex((t) => t.id === todo.id);
+    (todoId: number): void => {
+      const updatingTodo: number = todos.findIndex((t) => t.id === todoId);
       let newTodos = [...todos];
       newTodos[updatingTodo].isDone = !newTodos[updatingTodo].isDone;
       setTodos(newTodos);
@@ -18,14 +18,14 @@ export default function App() {
   );
 
   const removeTodo = useCallback(
-    (todo: Todo): void =>
-      setTodos((todos) => [...todos].filter((t) => t.id !== todo.id)),
+    (todoId: number): void =>
+      setTodos((todos) => [...todos].filter((t) => t.id !== todoId)),
     []
   );
 
   const editTodo = useCallback(
-    (todo: Todo, text: string): void => {
-      const updatingTodo: number = todos.findIndex((t) => t.id === todo.id);
+    (todoId: number, text: string): void => {
+      const updatingTodo: number = todos.findIndex((t) => t.id === todoId);
       let newTodos = [...todos];
       newTodos[updatingTodo].text = text;
       setTodos(newTodos);

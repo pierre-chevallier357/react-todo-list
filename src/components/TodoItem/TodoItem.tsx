@@ -22,13 +22,13 @@ export default function TodoItem({ props }: { props: Props }) {
 
   function disableEditingMode(e?: any): void {
     if (!e || e.key === "Enter") {
-      props.editTodo(props.todo, inputText);
+      props.editTodo(props.todo.id, inputText);
       setIsEditing(false);
     }
   }
 
   const handleClick = useDoubleClick(
-    () => props.toggleIsDone(props.todo),
+    () => props.toggleIsDone(props.todo.id),
     enableEditingMode
   );
 
@@ -57,7 +57,7 @@ export default function TodoItem({ props }: { props: Props }) {
       )}
       <button
         className="delete-button"
-        onClick={() => props.removeTodo(props.todo)}
+        onClick={() => props.removeTodo(props.todo.id)}
       >
         X
       </button>
