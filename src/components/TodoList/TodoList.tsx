@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Todo } from "../../models/Todo";
 import TodoItem from "../TodoItem/TodoItem";
 
@@ -9,22 +8,23 @@ interface Props {
   toggleIsDone: Function;
 }
 
-const TodoList = memo(function TodoList({ props }: { props: Props }) {
+export default function TodoList({
+  todos,
+  editTodo,
+  removeTodo,
+  toggleIsDone,
+}: Props) {
   return (
     <ul>
-      {props.todos.map((todo: Todo) => (
+      {todos.map((todo: Todo) => (
         <TodoItem
           key={todo.id}
-          props={{
-            todo: todo,
-            editTodo: props.editTodo,
-            toggleIsDone: props.toggleIsDone,
-            removeTodo: props.removeTodo,
-          }}
+          todo={todo}
+          editTodo={editTodo}
+          removeTodo={removeTodo}
+          toggleIsDone={toggleIsDone}
         />
       ))}
     </ul>
   );
-});
-
-export default TodoList;
+}
