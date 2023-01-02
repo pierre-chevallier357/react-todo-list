@@ -41,7 +41,7 @@ export default function TodoItem({ props }: { props: Props }) {
         <li
           key={props.todo.id}
           onClick={handleClick}
-          className={`${props.todo.isDone && "crossed-text"}`}
+          className={`cursor-pointer ${props.todo.isDone && "crossed-text"}`}
         >
           {props.todo.text}
         </li>

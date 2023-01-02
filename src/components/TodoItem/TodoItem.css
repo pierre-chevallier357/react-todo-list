@@ -10,3 +10,7 @@
 .delete-button {
   float: right;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
