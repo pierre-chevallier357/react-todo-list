@@ -1,5 +1,6 @@
 import { Todo } from "../../models/Todo";
 import TodoItem from "../TodoItem/TodoItem";
+import React from "react";
 
 interface Props {
   todos: Todo[];
@@ -8,12 +9,7 @@ interface Props {
   toggleIsDone: Function;
 }
 
-export default function TodoList({
-  todos,
-  editTodo,
-  removeTodo,
-  toggleIsDone,
-}: Props) {
+function TodoList({ todos, editTodo, removeTodo, toggleIsDone }: Props) {
   return (
     <ul>
       {todos.map((todo: Todo) => (
@@ -28,3 +24,4 @@ export default function TodoList({
     </ul>
   );
 }
+export default React.memo(TodoList);
