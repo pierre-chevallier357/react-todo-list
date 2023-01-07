@@ -20,15 +20,12 @@ export default function App() {
     setTodos((todos) => [...todos].filter((t) => t.id !== todoId));
   }, []);
 
-  const editTodo = useCallback(
-    (todoId: number, text: string): void => {
-      const updatingTodo: number = todos.findIndex((t) => t.id === todoId);
-      let newTodos = [...todos];
-      newTodos[updatingTodo].text = text;
-      setTodos(newTodos);
-    },
-    [todos]
-  );
+  const editTodo = useCallback((todoId: number, text: string): void => {
+    setTodos((todos) => {
+      todos[todos.findIndex((t) => t.id === todoId)].text = text;
+      return todos;
+    });
+  }, []);
 
   return (
     <div className="todo-app">
