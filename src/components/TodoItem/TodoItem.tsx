@@ -4,36 +4,31 @@ import useDoubleClick from "../../hooks/useDoubleClick";
 import { Todo } from "../../models/Todo";
 import "./TodoItem.css";
 
-interface Props {
+interface TodoItemProps {
   todo: Todo;
   editTodo: Function;
   removeTodo: Function;
   toggleIsDone: Function;
 }
 
-export default function TodoItem({
-  todo,
-  editTodo,
-  removeTodo,
-  toggleIsDone,
-}: Props) {
+export default function TodoItem(props: TodoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [inputText, setInputText] = useState("");
 
   function enableEditingMode(): void {
     setIsEditing(true);
-    setInputText(todo.text);
+    setInputText(props.todo.text);
   }
 
   function disableEditingMode(e?: any): void {
     if (!e || e.key === "Enter") {
-      editTodo(todo.id, inputText);
+      props.editTodo(props.todo.id, inputText);
       setIsEditing(false);
     }
   }
 
   const handleClick = useDoubleClick(
-    () => toggleIsDone(todo.id),
+    () => props.toggleIsDone(props.todo.id),
     enableEditingMode
   );
 
@@ -44,11 +39,11 @@ export default function TodoItem({
     <div className="todo">
       {!isEditing && (
         <li
-          key={todo.id}
+          key={props.todo.id}
           onClick={handleClick}
-          className={`cursor-pointer ${todo.isDone && "crossed-text"}`}
+          className={`cursor-pointer ${props.todo.isDone && "crossed-text"}`}
         >
-          {todo.text}
+          {props.todo.text}
         </li>
       )}
       {isEditing && (
@@ -60,7 +55,10 @@ export default function TodoItem({
           autoFocus={true}
         />
       )}
-      <button className="delete-button" onClick={() => removeTodo(todo.id)}>
+      <button
+        className="delete-button"
+        onClick={() => props.removeTodo(props.todo.id)}
+      >
         X
       </button>
     </div>

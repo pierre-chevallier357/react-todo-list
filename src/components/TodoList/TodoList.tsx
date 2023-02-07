@@ -2,23 +2,23 @@ import { Todo } from "../../models/Todo";
 import TodoItem from "../TodoItem/TodoItem";
 import React from "react";
 
-interface Props {
+interface TodoListProps {
   todos: Todo[];
   editTodo: Function;
   removeTodo: Function;
   toggleIsDone: Function;
 }
 
-function TodoList({ todos, editTodo, removeTodo, toggleIsDone }: Props) {
+function TodoList(props: TodoListProps) {
   return (
     <ul>
-      {todos.map((todo: Todo) => (
+      {props.todos.map((todo: Todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
-          editTodo={editTodo}
-          removeTodo={removeTodo}
-          toggleIsDone={toggleIsDone}
+          editTodo={props.editTodo}
+          removeTodo={props.removeTodo}
+          toggleIsDone={props.toggleIsDone}
         />
       ))}
     </ul>

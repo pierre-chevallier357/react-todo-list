@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Todo } from "../../models/Todo";
 
-interface Props {
+interface TodoInputProps {
   setTodos: Function;
 }
 
-export default function TodoInput(props: Props) {
+export default function TodoInput(props: TodoInputProps) {
   const [inputText, setInputText] = useState("");
 
   function addTodo(e: any): void {
